@@ -1,5 +1,11 @@
 <h1>New Listing</h1>
 
+<% if @listing.errors.any? %>
+    <% @listing.errors.full_messages.each do |message| %>
+        <li style="color: red;"><%= message %></li>
+    <% end %>
+<% end %>
+
 <%= form_with model: @listing do |form|  %>
     <%= form_with(model: @listing, local: true) do |form| %>
     <div class="title-field">

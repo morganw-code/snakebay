@@ -16,7 +16,10 @@ class ListingsController < ApplicationController
 
     def create
         #finish logic for creating a record
-        Listing.create(listing_params)
+        @listing = Listing.create(listing_params)
+        if @listing.errors.any?
+            render "new"
+        end
     end
 
     def edit
@@ -38,7 +41,7 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-        params.require(:listing).permit(:title, :description, :breed_id, :sex, :price, :deposit, :date_of_birth, :diet, :picture)
+        params.require(:listing).permit(:title, :description, :breed_id, :sex, :city, :state, :price, :deposit, :date_of_birth, :diet, :picture)
     end
 
 end
