@@ -3,4 +3,5 @@ class Listing < ApplicationRecord
   enum sex: { female: 0, male: 1 }
   # specify fields that must be included
   validates :sex, presence: true
+  has_one_attached :picture
 end
