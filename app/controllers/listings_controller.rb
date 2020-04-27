@@ -11,6 +11,8 @@ class ListingsController < ApplicationController
     end
 
     def new
+        @breeds = Breed.all
+        @sexes = Listing.sexes.keys
         @listing = Listing.new
     end
 
